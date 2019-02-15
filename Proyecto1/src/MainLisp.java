@@ -19,12 +19,17 @@ public class MainLisp {
     Scanner scan = new Scanner(System.in);
     String comando;
     Calculadora calculadora=new Calculadora();
+    /* String to Split*/
     System.out.println("Introduzca comando en Lisp que desee ejecutar");
-    comando=scan.next();
-    List<String> operacion = new ArrayList<String>(Arrays.asList(comando.split(" ")));
-    System.out.println(operacion.get(1));
-    //int resultado=calculadora.resultadodeoperacion(operacion);
-    //System.out.println(resultado);
+    comando = scan.nextLine();
+    /* Con el string se hace split con el delimitador como parametro*/
+    String[] items = comando.split(" ");
+    /* Se crea una Lista con los item separados anteriormente*/
+    List<String> itemList;
+        itemList = Arrays.asList(items);
+    /* Se imprime el resultado obtenido al operar los elementos de la nueva lista*/
+    int resultado=calculadora.resultadodeoperacion(itemList);
+    System.out.println("El resultado de tu operacion es: " + resultado);
     
     }
     
