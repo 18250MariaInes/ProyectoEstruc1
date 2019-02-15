@@ -41,7 +41,9 @@ public class Calculadora {
             resul=dato1/dato2;
         }else if (operacion.equals("sqrt")){
             resul=(int) Math.sqrt(dato1);
-        }
+        }else if (operacion.equals("*")){
+            resul=dato1*dato2;
+        }  
         
         return resul;    
     }
