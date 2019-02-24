@@ -30,19 +30,27 @@ public class Calculadora {
                 //operacion=item+operacion;
             }
         }
-        int dato1=numeros.get(0);
-        int dato2=numeros.get(1);
         
         if (operacion.equals("+")){
-            resul=dato1+dato2;
+            for(int i=0; i<=(numeros.size()-1);i++){
+                resul += numeros.get(i);
+            }
         }else if (operacion.equals("-")){
-            resul=dato1-dato2;
+            resul = numeros.get(0);
+            for(int i=1; i<=(numeros.size()-1);i++){
+                resul -= numeros.get(i);
+            }
         }else if (operacion.equals("/")){
+            int dato1=numeros.get(0);
+            int dato2=numeros.get(1);
             resul=dato1/dato2;
         }else if (operacion.equals("sqrt")){
-            resul=(int) Math.sqrt(dato1);
+            resul=(int) Math.sqrt(numeros.get(0));
         }else if (operacion.equals("*")){
-            resul=dato1*dato2;
+            resul = 1;
+            for(int i=0; i<=(numeros.size()-1);i++){
+                resul *= numeros.get(i);
+            }
         }  
         
         return resul;    
