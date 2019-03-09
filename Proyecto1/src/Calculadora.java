@@ -41,9 +41,14 @@ public class Calculadora {
                 resul -= numeros.get(i);
             }
         }else if (operacion.equals("/")){
-            int dato1=numeros.get(0);
-            int dato2=numeros.get(1);
-            resul=dato1/dato2;
+            try{
+                //se realiza la division si no hay excepcion de denominador 0
+                int dato1=numeros.get(0);
+                int dato2=numeros.get(1);
+                resul=dato1/dato2;
+            } catch(ArithmeticException e){
+                System.out.print("Error!! Es imposible dividir entre 0\n");
+            }
         }else if (operacion.equals("sqrt")){
             resul=(int) Math.sqrt(numeros.get(0));
         }else if (operacion.equals("*")){
