@@ -19,18 +19,25 @@ public class MainLisp {
     Scanner scan = new Scanner(System.in);
     String comando;
     Calculadora calculadora=new Calculadora();
-    /* String to Split*/
+    HashMap<String, ArrayList<String>> instrucciones = new HashMap<String, ArrayList<String>>();
+    /* String to Split
     System.out.println("Introduzca comando en Lisp que desee ejecutar");
     comando = scan.nextLine();
-    /* Con el string se hace split con el delimitador como parametro*/
+    // Con el string se hace split con el delimitador como parametro
     String[] items = comando.split(" ");
-    /* Se crea una Lista con los item separados anteriormente*/
+    // Se crea una Lista con los item separados anteriormente
     List<String> itemList;
         itemList = Arrays.asList(items);
-    /* Se imprime el resultado obtenido al operar los elementos de la nueva lista*/
+    // Se imprime el resultado obtenido al operar los elementos de la nueva lista
     int resultado=calculadora.resultadodeoperacion(itemList);
-    System.out.println("El resultado de tu operacion es: " + resultado);
-    
+    System.out.println("El resultado de tu operacion es: " + resultado);*/
+    Analizador separador = new Analizador();
+    instrucciones = separador.separar("(LIST 1 2 3 4 5(+ 8 9)))");
+    System.out.print("\nHASH DEL MAIN ----> " + instrucciones);
+    System.out.print("\n\n");
+    instrucciones = separador.separar("(DEFUN queTanBienLeCaigoADiego (nombre) 0)");
+    System.out.print("\nHASH DEL MAIN ----> " +instrucciones);
     }
+    
     
 }
