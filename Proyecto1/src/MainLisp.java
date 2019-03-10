@@ -48,7 +48,21 @@ public class MainLisp {
             //Se itera la lectura y cada elemento se divide en dos (nombre-tipo)
             String item = lectura.get(i);
             instrucciones = separador.separar(item);
-            System.out.print("\nHASH DEL MAIN ----> " + instrucciones);
+            HashMap<String,Object> resultados = new HashMap<>();
+            System.out.print("\nHASH DEL MAIN ----> " + instrucciones+"\n");
+            for (Map.Entry<String, ArrayList<String>> entry : instrucciones.entrySet()) {
+                String clave = entry.getKey();
+                ArrayList<String> valor = entry.getValue();
+                System.out.println("clave=" + clave + ", valor=" + valor);
+                if(clave.equals("+")||clave.equals("-")||clave.equals("/")||clave.equals("*")||clave.equals("sqrt")){
+                    int resultado=calculadora.resultadodeoperacion(clave, valor);
+                    System.out.println("El resultado de tu operacion es: " + resultado);
+                    resultados.put(clave,resultado);
+                    System.out.println("El hashmap con resultados: " + resultados);
+                }
+            }
+            System.out.print("\nAhora se recorre el Hashmap de resultados para operarlos todos\n");
+            
             System.out.print("\n\n");
         }
     } catch (IOException e){

@@ -1,13 +1,8 @@
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Stream;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,18 +15,19 @@ import java.util.stream.Stream;
  * @author Camila
  */
 public class Analizador {
-    ArrayList<String> operaciones = new ArrayList<>();
-    HashMap<String, ArrayList<String>> hashInstrucciones = new HashMap<>();
+    //ArrayList<String> operaciones = new ArrayList<>();
 
     public HashMap separar(String usuario) {
-        //Se eliminan los parentesis
+        //Se eliminan los parentesis y se crea el hasmap y arraylist que tendra todos los comandos de la linea
+        HashMap<String, ArrayList<String>> hashInstrucciones = new HashMap<>();
+        ArrayList<String> operaciones = new ArrayList<>();
         String[] prueba = usuario.split(" ");
         String primero = prueba[0];
         if(primero.equals("(DEFUN")){
             String name = prueba[1];
             String param = prueba[2];
             String cuerpo = prueba[3];
-            System.out.print("es definicion de funcion, NOMBRE: " + name +"\nPARAMETRO: " +param+"\nCUERPO: " + cuerpo);
+            System.out.print("Es definicion de funcion!!\n NOMBRE: " + name +"\nPARAMETRO: " +param+"\nCUERPO: " + cuerpo);
         }else{
             String[] arr = usuario.split("\\(");
             String ultimo = arr[arr.length - 1];
@@ -60,19 +56,11 @@ public class Analizador {
                 hashInstrucciones.put(comandoList.get(0), values);
                 //Este array se pasa como parametro a la funcion Evaluar par determinar que comando es
             }
-            System.out.print("\nEl hashMap   "+hashInstrucciones);
+            System.out.print("\nEl hashMap   "+ hashInstrucciones);
         } 
         return hashInstrucciones;
     }
     
-    public String evaluar(List<String> comandoList){
-        //Esta funcion evalua que tipo de comando es
-        if (comandoList.get(0).equals("DEFUN")){
-            //si es la definicion de una funcion
-        } else if (operaciones.size()==1 && (operaciones.get(0).equals("+")||operaciones.get(0).equals("-")||operaciones.get(0).equals("/")||operaciones.get(0).equals("*")||operaciones.get(0).equals("sqrt"))){
-            //Si se tiene solo una operacion 
-        }
-            return "hola";
-    }
+  
     
 }

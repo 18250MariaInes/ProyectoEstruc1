@@ -15,9 +15,10 @@ import java.util.Vector;
  */
 public class Calculadora {
     List<String> comando = new ArrayList();
-    List<Integer> numeros = new ArrayList();
-    public int resultadodeoperacion(List<String> n){
-        String operacion=n.get(0);
+    //List<Integer> numeros = new ArrayList();
+    public int resultadodeoperacion(String operando, List<String> n){
+        List<Integer> numeros = new ArrayList();
+        String operacion= operando;
         int resul=0;
         //String item=n.get(0)
         for (int i=0; i<=(n.size()-1); i++){
