@@ -62,5 +62,37 @@ public class Calculadora {
         return resul;    
     }
     
+    public int total(Object operacion, List<Integer> numeros){
+        int resulfinal = 0;
+        if (operacion.equals("+")){
+            for(int i=0; i<=(numeros.size()-1);i++){
+                resulfinal += numeros.get(i);
+            }
+        }else if (operacion.equals("-")){
+            resulfinal = numeros.get(0);
+            for(int i=1; i<=(numeros.size()-1);i++){
+                resulfinal -= numeros.get(i);
+            }
+        }else if (operacion.equals("/")){
+            try{
+                //se realiza la division si no hay excepcion de denominador 0
+                int dato1=numeros.get(0);
+                int dato2=numeros.get(1);
+                resulfinal=dato1/dato2;
+            } catch(ArithmeticException e){
+                System.out.print("Error!! Es imposible dividir entre 0\n");
+            }
+        }else if (operacion.equals("sqrt")){
+            resulfinal=(int) Math.sqrt(numeros.get(0));
+        }else if (operacion.equals("*")){
+            resulfinal = 1;
+            for(int i=0; i<=(numeros.size()-1);i++){
+                resulfinal *= numeros.get(i);
+            }
+        }  
+        
+        return resulfinal;
+    }
+    
     
 }

@@ -64,17 +64,25 @@ public class MainLisp {
             }
             System.out.print("\nAhora se recorre el Hashmap de resultados para operarlos todos\n");
             
-            ArrayList keyList = new ArrayList(resultados.keySet());
-            
+            ArrayList<String> keyList = new ArrayList(resultados.keySet());
+            ArrayList<Integer> aOperar = new ArrayList<>();
+            System.out.print("\nOperadores: " + keyList+"\n");
+            String ope = "";
             for ( int mi = keyList.size() - 1; mi >= 0; mi--) {
 		//get key
-		Object key = keyList.get(mi);
+		String key = keyList.get(mi);
+                ope = key;
 		System.out.println("Key :: " + key);
 		//get value corresponding to key
 		Object value = resultados.get(key);
+                aOperar.add((Integer) value);
 		System.out.println("Value :: " + value);
 		System.out.println("--------------------------------" + mi);
             }
+            System.out.print("\nPrincipal: "+ope+"\n");
+            System.out.print(aOperar);
+            int resulFinal = calculadora.total(ope,aOperar);
+            System.out.print(resulFinal);
 
             
             System.out.print("\n\n");
