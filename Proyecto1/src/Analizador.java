@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.LinkedHashMap;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +20,7 @@ public class Analizador {
 
     public HashMap separar(String usuario) {
         //Se eliminan los parentesis y se crea el hasmap y arraylist que tendra todos los comandos de la linea
-        HashMap<String, ArrayList<String>> hashInstrucciones = new HashMap<>();
+        HashMap<String, ArrayList<String>> hashInstrucciones = new LinkedHashMap<>();
         ArrayList<String> operaciones = new ArrayList<>();
         String[] prueba = usuario.split(" ");
         String primero = prueba[0];

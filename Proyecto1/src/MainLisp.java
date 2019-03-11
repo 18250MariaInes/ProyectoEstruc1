@@ -17,13 +17,14 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.LinkedHashMap ;
 import java.util.stream.Stream;
 public class MainLisp {
     public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     String comando;
     Calculadora calculadora=new Calculadora();
-    HashMap<String, ArrayList<String>> instrucciones = new HashMap<>();
+    HashMap<String, ArrayList<String>> instrucciones = new LinkedHashMap<>();
     /* String to Split
     System.out.println("Introduzca comando en Lisp que desee ejecutar");
     comando = scan.nextLine();
@@ -48,7 +49,7 @@ public class MainLisp {
             //Se itera la lectura y cada elemento se divide en dos (nombre-tipo)
             String item = lectura.get(i);
             instrucciones = separador.separar(item);
-            HashMap<String,Object> resultados = new HashMap<>();
+            HashMap<String,Object> resultados = new LinkedHashMap<>();
             System.out.print("\nHASH DEL MAIN ----> " + instrucciones+"\n");
             for (Map.Entry<String, ArrayList<String>> entry : instrucciones.entrySet()) {
                 String clave = entry.getKey();
@@ -63,8 +64,22 @@ public class MainLisp {
             }
             System.out.print("\nAhora se recorre el Hashmap de resultados para operarlos todos\n");
             
+            ArrayList keyList = new ArrayList(resultados.keySet());
+            
+            for ( int mi = keyList.size() - 1; mi >= 0; mi--) {
+		//get key
+		Object key = keyList.get(mi);
+		System.out.println("Key :: " + key);
+		//get value corresponding to key
+		Object value = resultados.get(key);
+		System.out.println("Value :: " + value);
+		System.out.println("--------------------------------" + mi);
+            }
+
+            
             System.out.print("\n\n");
         }
+        
     } catch (IOException e){
             System.out.println("Error al leer el archivo");
     }
