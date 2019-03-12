@@ -17,6 +17,7 @@ import java.util.LinkedHashMap;
  */
 public class Analizador {
     //ArrayList<String> operaciones = new ArrayList<>();
+    String[] posibles = {"(+", "(-", "(*", "(/","sqrt","(COND","(LIST","(ATOM", "factorial"};
 
     public HashMap separar(String usuario) {
         //Se eliminan los parentesis y se crea el hasmap y arraylist que tendra todos los comandos de la linea
@@ -25,11 +26,13 @@ public class Analizador {
         String[] prueba = usuario.split(" ");
         String primero = prueba[0];
         if(primero.equals("(DEFUN")){
+            //Si es la deficion de una funcion
             String name = prueba[1];
             String param = prueba[2];
             String cuerpo = prueba[3];
             System.out.print("Es definicion de funcion!!\n NOMBRE: " + name +"\nPARAMETRO: " +param+"\nCUERPO: " + cuerpo);
-        }else{
+        }else if (Arrays.asList(posibles).contains(primero)){
+            //Si es algun comando LISP determinado 
             String[] arr = usuario.split("\\(");
             String ultimo = arr[arr.length - 1];
             String[] last = ultimo.split("\\)");
@@ -58,7 +61,10 @@ public class Analizador {
                 //Este array se pasa como parametro a la funcion Evaluar par determinar que comando es
             }
             System.out.print("\nEl hashMap   "+ hashInstrucciones);
-        } 
+        } else{
+            //Si es alguna funcion definida por el user
+            System.out.print("\nEs una funcion definida por el user en el txt");
+        }
         return hashInstrucciones;
     }
     
