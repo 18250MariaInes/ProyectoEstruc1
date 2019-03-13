@@ -24,7 +24,8 @@ public class MainLisp {
     Scanner scan = new Scanner(System.in);
     String comando;
     Calculadora calculadora=new Calculadora();
-    HashMap<String, ArrayList<String>> instrucciones = new LinkedHashMap<>();
+    HashMap<String, Object> instrucciones = new LinkedHashMap<>();
+    HashMap<String, Funcion> hashFunciones = new LinkedHashMap<>();
     /* String to Split
     System.out.println("Introduzca comando en Lisp que desee ejecutar");
     comando = scan.nextLine();
@@ -46,20 +47,26 @@ public class MainLisp {
         );
         lines.forEach(c -> lectura.add(c));
         for (int i=0; i<=(lectura.size()-1); i++){
-            //Se itera la lectura y cada elemento se divide en dos (nombre-tipo)
+            //Se itera la lectura y cada elemento se divide en dos (tipo-datos)
             String item = lectura.get(i);
             instrucciones = separador.separar(item);
             HashMap<String,Object> resultados = new LinkedHashMap<>();
             System.out.print("\nHASH DEL MAIN ----> " + instrucciones+"\n");
-            for (Map.Entry<String, ArrayList<String>> entry : instrucciones.entrySet()) {
+            for (Map.Entry<String, Object> entry : instrucciones.entrySet()) {
+                //Se itera cada dato del Map para obtener cada uno de sus valores
                 String clave = entry.getKey();
-                ArrayList<String> valor = entry.getValue();
+                Object valor = entry.getValue();
                 System.out.println("clave=" + clave + ", valor=" + valor);
                 if(clave.equals("+")||clave.equals("-")||clave.equals("/")||clave.equals("*")||clave.equals("sqrt")){
-                    int resultado=calculadora.resultadodeoperacion(clave, valor);
+                    int resultado=calculadora.resultadodeoperacion(clave, (List<String>) valor);
                     System.out.println("El resultado de tu operacion es: " + resultado);
                     resultados.put(clave,resultado);
                     System.out.println("El hashmap con resultados: " + resultados);
+                }else if(clave.equals("COND")){
+                    //Aqui se ponen todos los posibles resultados
+                }else{
+                    //Si no es ninguno de los anteriores significa que es una funcion definida por el user
+                    
                 }
             }
             System.out.print("\nAhora se recorre el Hashmap de resultados para operarlos todos\n");

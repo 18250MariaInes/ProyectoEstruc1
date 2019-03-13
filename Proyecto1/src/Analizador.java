@@ -22,15 +22,27 @@ public class Analizador {
     public HashMap separar(String usuario) {
         //Se eliminan los parentesis y se crea el hasmap y arraylist que tendra todos los comandos de la linea
         HashMap<String, ArrayList<String>> hashInstrucciones = new LinkedHashMap<>();
+        HashMap<String, Object> hashFuncion = new LinkedHashMap<>();
         ArrayList<String> operaciones = new ArrayList<>();
         String[] prueba = usuario.split(" ");
         String primero = prueba[0];
         if(primero.equals("(DEFUN")){
             //Si es la deficion de una funcion
             String name = prueba[1];
-            String param = prueba[2];
+            String[] parametros = prueba[2].split("\\(");
+            String param = parametros[1];
+            parametros = param.split("\\)");
+            param = parametros[0];
+            parametros = param.split(",");
             String cuerpo = prueba[3];
-            System.out.print("Es definicion de funcion!!\n NOMBRE: " + name +"\nPARAMETRO: " +param+"\nCUERPO: " + cuerpo);
+            String[] opera = cuerpo.split("\\)");
+            cuerpo = opera[0];
+            hashFuncion.put("nombre", name);
+            hashFuncion.put("param", parametros);
+            hashFuncion.put("cuerpo", cuerpo);
+            System.out.print("Es definicion de funcion!!\n NOMBRE: " + name +"\nPARAMETRO: " +Arrays.toString(parametros)+"\nCUERPO: " + cuerpo);
+            System.out.print(hashFuncion);
+            return hashFuncion;
         }else if (Arrays.asList(posibles).contains(primero)){
             //Si es algun comando LISP determinado 
             String[] arr = usuario.split("\\(");
@@ -64,6 +76,7 @@ public class Analizador {
         } else{
             //Si es alguna funcion definida por el user
             System.out.print("\nEs una funcion definida por el user en el txt");
+            
         }
         return hashInstrucciones;
     }
