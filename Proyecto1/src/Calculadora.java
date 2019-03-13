@@ -57,7 +57,31 @@ public class Calculadora {
             for(int i=0; i<=(numeros.size()-1);i++){
                 resul *= numeros.get(i);
             }
-        }  
+        }  else if (operacion.equals("=")){
+            int dato1=numeros.get(0);
+            int dato2=numeros.get(1);
+            if (dato1==dato2){
+                resul= 1;
+            }else{
+                resul= 0;
+            }
+        }else if (operacion.equals(">")){
+            int dato1=numeros.get(0);
+            int dato2=numeros.get(1);
+            if (dato1>dato2){
+                resul= 1;
+            }else{
+                resul= 0;
+            }
+        }else if(operacion.equals("<")){
+            int dato1=numeros.get(0);
+            int dato2=numeros.get(1);
+            if (dato1<dato2){
+                resul= 1;
+            }else{
+                resul= 0;
+            }
+        }
         
         return resul;    
     }

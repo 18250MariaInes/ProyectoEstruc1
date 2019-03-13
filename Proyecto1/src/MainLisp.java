@@ -57,7 +57,7 @@ public class MainLisp {
                 String clave = entry.getKey();
                 Object valor = entry.getValue();
                 System.out.println("clave=" + clave + ", valor=" + valor);
-                if(clave.equals("+")||clave.equals("-")||clave.equals("/")||clave.equals("*")||clave.equals("sqrt")){
+                if(clave.equals("+")||clave.equals("-")||clave.equals("/")||clave.equals("*")||clave.equals("sqrt") || clave.equals("=")){
                     int resultado=calculadora.resultadodeoperacion(clave, (List<String>) valor);
                     System.out.println("El resultado de tu operacion es: " + resultado);
                     resultados.put(clave,resultado);
