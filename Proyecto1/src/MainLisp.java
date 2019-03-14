@@ -54,8 +54,48 @@ public class MainLisp {
                     System.out.println("El hashmap con resultados: " + resultados);
                 }
                 else if(clave.equals("COND")){
+                    ArrayList<String> cons=new ArrayList();
+                    Condicionales cond=new Condicionales();
                     int contadora=1;
                     int contadorb=0;
+                    int lineas=0;
+                     System.out.println("AQUIIIIIIIIIIIIIIIIIIIIIIII ESTOYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                    System.out.println("contador a:"+contadora);
+                    System.out.println("contador b:"+contadorb);
+                    System.out.println(lectura.get(i));
+                    int m=i;
+                    while (contadora!=contadorb){
+                        
+                        if (contadora==1 && contadorb==0){
+                            contadora--;
+                        }
+                        System.out.println("***********************************ENTRA*********************");
+                        
+                        for (int p=0; p<lectura.get(m).length(); p++){
+                            
+                            String palabra=lectura.get(m);
+                            char letra=palabra.charAt(p);
+                            String s=String.valueOf(letra);
+                            //System.out.println(s);
+                            if (s.equals("(")){
+                                contadora++;
+                            }else if (s.equals(")")){
+                                contadorb++;
+                            }
+                        }
+                        //System.out.println(m);
+                        cons.add(lectura.get(m));
+                        lineas++;
+                        //lectura.remove(i);
+                        System.out.println("contador a ADENTRO:"+contadora);
+                        System.out.println("contador b ADENTRO:"+contadorb);
+                        m++;
+                    }
+                    
+                    System.out.println("----------ESTAS SON CONDS--------"+cons);
+                    i=i+(lineas-1);
+                    boolean resul=cond.condicionar(cons);
+                    System.out.println(resul);
                     
                 }
                 else if(clave.equals("EQUAL")||clave.equals(">")||clave.equals("<")||clave.equals("ATOM")||clave.equals("LIST")){

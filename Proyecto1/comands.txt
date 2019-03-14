@@ -5,7 +5,7 @@
 (ATOM b)
 (LIST 1 2 3)
 (LIST 1)
-(COND ((= 1 1)))
+(COND ((= num 1) 1))
 (LIST 1 2 3 4 5 (+ 8 9))
 (DEFUN queTanBienLeCaigoADiego (nombre,edad) 0)
 (cuantosPuntosVoyASacarSiNoHeEmpezado 100) ; 0
