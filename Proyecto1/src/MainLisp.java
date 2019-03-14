@@ -24,20 +24,9 @@ public class MainLisp {
     Scanner scan = new Scanner(System.in);
     String comando;
     Calculadora calculadora=new Calculadora();
+    Predicados predicado =new Predicados();
     HashMap<String, Object> instrucciones = new LinkedHashMap<>();
     HashMap<String, Funcion> hashFunciones = new LinkedHashMap<>();
-    /* String to Split
-    System.out.println("Introduzca comando en Lisp que desee ejecutar");
-    comando = scan.nextLine();
-    // Con el string se hace split con el delimitador como parametro
-    String[] items = comando.split(" ");
-    // Se crea una Lista con los item separados anteriormente
-    List<String> itemList;
-        itemList = Arrays.asList(items);
-    // Se imprime el resultado obtenido al operar los elementos de la nueva lista
-    int resultado=calculadora.resultadodeoperacion(itemList);
-    System.out.println("El resultado de tu operacion es: " + resultado);*/
-    //Se lee el .txt
     ArrayList<String> lectura = new ArrayList<>();
     Analizador separador = new Analizador();
     try{
@@ -47,6 +36,7 @@ public class MainLisp {
         );
         lines.forEach(c -> lectura.add(c));
         for (int i=0; i<=(lectura.size()-1); i++){
+            System.out.print("-------INSTRUCCION # " +i +"-----------\n");
             //Se itera la lectura y cada elemento se divide en dos (tipo-datos)
             String item = lectura.get(i);
             instrucciones = separador.separar(item);
@@ -62,11 +52,19 @@ public class MainLisp {
                     System.out.println("El resultado de tu operacion es: " + resultado);
                     resultados.put(clave,resultado);
                     System.out.println("El hashmap con resultados: " + resultados);
-                }else if(clave.equals("COND")){
+                }
+                else if(clave.equals("COND")){
                     int contadora=1;
                     int contadorb=0;
                     
-                }else{
+                }
+                else if(clave.equals("EQUAL")||clave.equals(">")||clave.equals("<")||clave.equals("ATOM")||clave.equals("LIST")){
+                    int resultadoPred = predicado.evaluarPred(clave, (List<String>) valor);
+                    resultados.put(clave,resultadoPred);
+                    System.out.println("El resultado de tu operacion es: " + resultadoPred);
+                    System.out.println("El hashmap con resultados: " + resultados);
+                }
+                else{
                     //Si no es ninguno de los anteriores significa que es una funcion definida por el user
                     
                 }
@@ -75,6 +73,7 @@ public class MainLisp {
             
             ArrayList<String> keyList = new ArrayList(resultados.keySet());
             ArrayList<Integer> aOperar = new ArrayList<>();
+            int resulFinal;
             System.out.print("\nOperadores: " + keyList+"\n");
             String ope = "";
             for ( int mi = keyList.size() - 1; mi >= 0; mi--) {
@@ -90,11 +89,19 @@ public class MainLisp {
             }
             System.out.print("\nPrincipal: "+ope+"\n");
             System.out.print(aOperar);
-            int resulFinal = calculadora.total(ope,aOperar);
-            System.out.print(resulFinal);
-
+            resulFinal = calculadora.total(ope,aOperar);
+            if (ope.equals("EQUAL")||ope.equals(">")||ope.equals("<")||ope.equals("ATOM")||ope.equals("LIST")){
+                if(resulFinal==1){
+                    System.out.print("T");
+                }else{
+                    System.out.print("Nill");
+                }
+                System.out.print("\n\n");
+            }else{
+                System.out.print(resulFinal);
+                System.out.print("\n\n");
+            }
             
-            System.out.print("\n\n");
         }
         
     } catch (IOException e){

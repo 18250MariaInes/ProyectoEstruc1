@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
  */
 public class Analizador {
     //ArrayList<String> operaciones = new ArrayList<>();
-    String[] posibles = {"(+", "(-", "(*", "(/","sqrt","(COND","(LIST","(ATOM", "(=", "(<", "(>", "(factorial"};
+    String[] posibles = {"(+", "(-", "(*", "(/","sqrt","(COND","(LIST","(ATOM", "(EQUAL","(=", "(<", "(>", "(factorial"};
 
     public HashMap separar(String usuario) {
         //Se eliminan los parentesis y se crea el hasmap y arraylist que tendra todos los comandos de la linea

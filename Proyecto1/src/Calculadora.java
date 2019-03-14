@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,7 +30,6 @@ public class Calculadora {
                 //operacion=item+operacion;
             }
         }
-        
         if (operacion.equals("+")){
             for(int i=0; i<=(numeros.size()-1);i++){
                 resul += numeros.get(i);
@@ -113,7 +111,9 @@ public class Calculadora {
             for(int i=0; i<=(numeros.size()-1);i++){
                 resulfinal *= numeros.get(i);
             }
-        }  
+        }else{
+            resulfinal = numeros.get(0);
+        }
         
         return resulfinal;
     }
