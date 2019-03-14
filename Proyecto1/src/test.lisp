@@ -4,12 +4,7 @@
     (*
         (COND 
             ((= num 1) 1)
-            ; En la guia no dice pero pueden implementar T
-            ; Se simplifica la siguiente linea:
-            ; (T (factorial (- num 1)))
-            ; Noten que tambien funciona si se coloca cualquier cosa ie
-            ; ("Hola" (factorial (- num 1)))
-            ; solo revisa que lo primero sea no nil
+                
             ((ATOM 1) (factorial (- num 1)))
         )
         num

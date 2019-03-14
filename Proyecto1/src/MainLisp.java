@@ -63,7 +63,9 @@ public class MainLisp {
                     resultados.put(clave,resultado);
                     System.out.println("El hashmap con resultados: " + resultados);
                 }else if(clave.equals("COND")){
-                    //Aqui se ponen todos los posibles resultados
+                    int contadora=1;
+                    int contadorb=0;
+                    
                 }else{
                     //Si no es ninguno de los anteriores significa que es una funcion definida por el user
                     

@@ -1,5 +1,6 @@
 (* 4 5 (+ 5 5 ) (/ 16 8))
 (= 4 4)
+(COND ((= 1 1)))
 (LIST 1 2 3 4 5 (+ 8 9))
 (DEFUN queTanBienLeCaigoADiego (nombre,edad) 0)
 (cuantosPuntosVoyASacarSiNoHeEmpezado 100) ; 0
