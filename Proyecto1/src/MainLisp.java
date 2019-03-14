@@ -76,7 +76,7 @@ public class MainLisp {
                             String palabra=lectura.get(m);
                             char letra=palabra.charAt(p);
                             String s=String.valueOf(letra);
-                            //System.out.println(s);
+                            //rSystem.out.println(s);
                             if (s.equals("(")){
                                 contadora++;
                             }else if (s.equals(")")){
