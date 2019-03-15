@@ -28,6 +28,7 @@ public class Calculadora {
                 numeros.add(a);
             }catch(NumberFormatException e){
                 //operacion=item+operacion;
+                numeros.add(1);
             }
         }
         if (operacion.equals("+")){

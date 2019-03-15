@@ -16,8 +16,7 @@ public class Condicionales {
     String [] operacionespre={"(EQUAL", "(ATOM", "(LIST", "(<", "(>"};
     
     public void condicionar(ArrayList<String> arr){
-       String[] types=arr.get(0).split(" ");
-       System.out.println(Arrays.toString(types));
+       
         
         /*
         for (int i=0; i<=arr.size(); i++){

@@ -8,5 +8,4 @@
 (COND ((= num 1) 1)
 	((ATOM 1) (factorial (- num 1))))
 (LIST 1 2 3 4 5 (+ 8 9))
-(DEFUN queTanBienLeCaigoADiego (nombre,edad) 0)
-(cuantosPuntosVoyASacarSiNoHeEmpezado 100) ; 0
+(+ 8 2 4)
