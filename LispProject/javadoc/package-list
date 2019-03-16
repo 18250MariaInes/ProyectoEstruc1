@@ -1,0 +1,7 @@
+com.lisp.interpreter
+com.lisp.interpreter.command
+com.lisp.interpreter.constants
+com.lisp.interpreter.context
+com.lisp.interpreter.operand
+com.lisp.parser
+lispcompiler

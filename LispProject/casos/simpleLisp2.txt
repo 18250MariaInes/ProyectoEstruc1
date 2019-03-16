@@ -1,0 +1,17 @@
+(DEFUN prueba2 (vp2)
+	(* vp2 100)
+)//fin
+(DEFUN prueba (v v2 v3 v4)   
+   (+ v 
+		(* 1 
+			(* 200 //HOLA2
+				(prueba2 v4) //uso de primera defun
+		    )
+	    )
+	)//resultado esperado:?
+)//fin
+//root
+(prueba 11 200 30 5)
+//fin root
+
+
