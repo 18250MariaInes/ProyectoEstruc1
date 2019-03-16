@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.parser;
 
@@ -16,8 +16,8 @@ import java.util.Stack;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
- * @author cesar.asada
+ * Clase para poder parsear/analizar la definicion de una funcion
+ * @author maria.camila.abril
  */
 public class ParseFunctionDefinition {   
    private String functionName = null;
@@ -25,13 +25,22 @@ public class ParseFunctionDefinition {
    private String firstLine = null;   
    private Stack<BaseCommand> stack = null;
    
-   public ParseFunctionDefinition(String firstLine, String segmentCode){
+    /**
+     * se establecen sus atributos
+     * @param firstLine
+     * @param segmentCode
+     */
+    public ParseFunctionDefinition(String firstLine, String segmentCode){
        this.segmentCode = segmentCode;     
        this.firstLine = firstLine;
        this.stack = new Stack<BaseCommand>();       
    }
    
-   public ParseFunctionDefinition(String segmentCode){
+    /**
+     * Establece una parte del codigo
+     * @param segmentCode
+     */
+    public ParseFunctionDefinition(String segmentCode){
        this.segmentCode = segmentCode;     
        this.stack = new Stack<BaseCommand>();       
    }
@@ -110,7 +119,12 @@ public class ParseFunctionDefinition {
        
    }
    
-   public FunctionCommand parse () throws Exception{
+    /**
+     * Analiza la sintaxis de la definicion de funcion
+     * @return
+     * @throws Exception
+     */
+    public FunctionCommand parse () throws Exception{
        this.functionName = StringUtils.substringBetween(firstLine, "(DEFUN ", " ");
        FunctionCommand functionCommand = new FunctionCommand(this.functionName);              
        String paramDefs= StringUtils.substringAfter(firstLine, "(DEFUN ");
@@ -125,7 +139,12 @@ public class ParseFunctionDefinition {
        return functionCommand;
    }
    
-   public void parse(FunctionCommand functionCommand) throws Exception{       
+    /**
+     *
+     * @param functionCommand
+     * @throws Exception
+     */
+    public void parse(FunctionCommand functionCommand) throws Exception{       
        this.stack.push(functionCommand);                
  
        String[] segs= StringUtils.split(segmentCode, " ");

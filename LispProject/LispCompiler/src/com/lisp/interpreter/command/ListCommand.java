@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.command;
 
@@ -9,25 +9,43 @@ import com.lisp.interpreter.context.CommandContext;
 import com.lisp.interpreter.operand.Operand;
 
 /**
- *
- * @author cesar.asada
+ * Esta clase se emplea para poder utilizar comandos de tipo LIST
+ * @author maria.camila.abril
  */
 public class ListCommand extends BaseCommand{
     
+    /**
+     *
+     */
     public ListCommand(){
         
     }
 
+    /**
+     * Obtiene el operando a utilizar
+     * @param position
+     * @return
+     */
     @Override
     public Operand getOperand(int position) {
         return null;
     }
 
+    /**
+     * Devuelve el tipo de comando 
+     * @return
+     */
     @Override
     public String getName() {
         return "LIST";
     }
 
+    /**
+     * Ejecuta el predicado LIST
+     * @param context
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute(CommandContext context) throws Exception {
         if (this.mapping != null && this.mapping.size() > 1){

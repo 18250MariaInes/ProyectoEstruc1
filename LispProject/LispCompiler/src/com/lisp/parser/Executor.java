@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.parser;
 
@@ -10,21 +10,27 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 /**
- *
- * @author cesar.asada
+ * Este lee el txt y lo envia a Root a traves del Parseer
+ * @author maria.camila.abril
  */
 public class Executor {
     
     private BufferedReader bfr = null;
     
-    
+    /**
+     *
+     * @param bfr
+     * @throws Exception
+     */
     public Executor(BufferedReader bfr) throws Exception{
         this.bfr = bfr;
         
     }
     
-    
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args){
         try{
             FileReader fr = new FileReader("C:\\temp\\simpleLisp.txt");

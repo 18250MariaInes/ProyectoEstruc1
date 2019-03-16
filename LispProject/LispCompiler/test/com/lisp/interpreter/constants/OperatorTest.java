@@ -18,6 +18,10 @@ import static org.junit.Assert.*;
  */
 public class OperatorTest {
     
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void testGetBySign() throws Exception {
         System.out.println("getBySign");

@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.operand;
 
@@ -9,8 +9,8 @@ import com.lisp.interpreter.command.BaseCommand;
 import com.lisp.interpreter.context.CommandContext;
 
 /**
- *
- * @author cesar.asada
+ * permite tener control de que operacion sera la que se ejecutara
+ * @author maria.camila.abril
  */
 public class Operand {
 
@@ -25,25 +25,48 @@ public class Operand {
     private boolean constant = false;
     private BaseCommand command = null;
     
+    /**
+     * Constructor
+     */
     public Operand(){
         this.constant = true;
     }
     
+    /**
+     * Establece el nombre y los valores de la operacion
+     * @param name
+     * @param constValue
+     */
     public Operand(String name, String constValue){
         this.name = name;
         this.value = constValue;
         this.constant = true;
     }
     
+    /**
+     * Establece el nombre
+     * @param name
+     */
     public Operand (String name){
         this.name = name;
     }
     
+    /**
+     * Determina el nombre y el comando 
+     * @param name
+     * @param command
+     */
     public Operand (String name, BaseCommand command){
         this.name = name;
         this.command = command;
     }    
     
+    /**
+     * Evalua si el operando se puede operar
+     * @param ctx
+     * @return
+     * @throws Exception
+     */
     public String resolve(CommandContext ctx) throws Exception{
         if (constant){
             return getValue();

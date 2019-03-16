@@ -1,19 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.command;
 
 /**
- *
- * @author cesar.asada
+ * Esta es la clase que se emplea para hacer mapping de los parametros recibidos
+ * @author maria.camila.abril
  */
 public class ParameterMapping {
     private String variableName = null;
     private String constantValue = null;
     
-    
+    /**
+     * Determina si el parametro es variable o constante y lo establece
+     * @param s
+     * @param isConstant
+     */
     public ParameterMapping(String s, boolean isConstant){
         if (isConstant){
             this.constantValue = s;            

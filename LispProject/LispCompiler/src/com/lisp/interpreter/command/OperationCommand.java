@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.command;
 
@@ -11,8 +11,8 @@ import com.lisp.interpreter.operand.Operand;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
- * @author cesar.asada
+ * Clase empleada para ejecutar comandos de operaciones aritmeticas
+ * @author maria.camila.abril
  */
 public class OperationCommand  extends BaseCommand{
  
@@ -20,12 +20,22 @@ public class OperationCommand  extends BaseCommand{
     private Operand operand1 = null;
     private Operand operand2 = null;
     
+    /**
+     * 
+     * @param operator
+     */
     public OperationCommand(Operator operator){
         this.operator = operator;
         operand1 = new Operand();
         operand2 = new Operand();
     }        
 
+    /**
+     * ejecuta la operacion luego de realizar una evaluacion de valores y operando
+     * @param context
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute(CommandContext context ) throws Exception {
 
@@ -52,6 +62,7 @@ public class OperationCommand  extends BaseCommand{
         }
         int result = 0;
         char operchar= getOperator().getValue();
+        //Se verifica que tipo de operacion es
         switch(operchar){
             case '+' :
                 result = Integer.parseInt(obj1) + Integer.parseInt(obj2);
@@ -89,6 +100,11 @@ public class OperationCommand  extends BaseCommand{
         return Integer.toString(result);
     }
 
+    /**
+     * Obtiene y devuelve el operando determinado
+     * @param position
+     * @return
+     */
     @Override
     public Operand getOperand(int position) {
         if (position == 0){
@@ -100,6 +116,10 @@ public class OperationCommand  extends BaseCommand{
         return null;
     }
 
+    /**
+     * Presenta el tipo de comando utilizado
+     * @return
+     */
     @Override
     public String getName() {
         return this.operator.toString();

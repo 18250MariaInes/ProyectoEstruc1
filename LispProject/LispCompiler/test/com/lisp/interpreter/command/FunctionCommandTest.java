@@ -21,6 +21,9 @@ import static org.junit.Assert.*;
  */
 public class FunctionCommandTest {
     
+    /**
+     *
+     */
     @Test
     public void testAddParam() {
         System.out.println("addParam");
@@ -39,6 +42,7 @@ public class FunctionCommandTest {
 
     /**
      * Test of getParam method, of class FunctionCommand.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetParam() throws Exception {

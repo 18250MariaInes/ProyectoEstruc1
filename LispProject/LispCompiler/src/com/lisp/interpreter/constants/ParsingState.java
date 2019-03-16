@@ -1,14 +1,48 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.constants;
 
 /**
- *
- * @author cesar.asada
+ * Estados que se pueden presentar en los comandos
+ * @author maria.camila.abril
  */
 public enum ParsingState {
-    INIT, ROOT, DEFUN, OPERATION, OPERATOR, INIT_OPERAND, END_OPERAND;
+
+    /**
+     *
+     */
+    INIT,
+
+    /**
+     *
+     */
+    ROOT,
+
+    /**
+     *
+     */
+    DEFUN,
+
+    /**
+     *
+     */
+    OPERATION,
+
+    /**
+     *
+     */
+    OPERATOR,
+
+    /**
+     *
+     */
+    INIT_OPERAND,
+
+    /**
+     *
+     */
+    END_OPERAND;
 }

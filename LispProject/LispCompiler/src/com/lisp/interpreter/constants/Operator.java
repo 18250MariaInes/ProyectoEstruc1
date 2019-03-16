@@ -1,16 +1,50 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.constants;
 
 /**
- *
- * @author cesar.asada
+ * Constantes que se pueden necesitar
+ * @author maria.camila.abril
  */
 public enum Operator {
-    PLUS('+'), MINUS('-'), MULTIPLY('*'), DIV('/'), MINOR('<'), MAYOR('>'), EQ('=');
+
+    /**
+     * 
+     */
+    PLUS('+'),
+
+    /**
+     *
+     */
+    MINUS('-'),
+
+    /**
+     *
+     */
+    MULTIPLY('*'),
+
+    /**
+     *
+     */
+    DIV('/'),
+
+    /**
+     *
+     */
+    MINOR('<'),
+
+    /**
+     *
+     */
+    MAYOR('>'),
+
+    /**
+     *
+     */
+    EQ('=');
     
     private char value = ' ';
     
@@ -25,6 +59,12 @@ public enum Operator {
         return value;
     }
     
+    /**
+     *
+     * @param sign
+     * @return
+     * @throws Exception
+     */
     public static Operator getBySign(char sign) throws Exception{
         Operator[] ops= Operator.values();
         for (Operator op : ops) {

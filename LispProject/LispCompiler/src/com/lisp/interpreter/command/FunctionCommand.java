@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.interpreter.command;
 
@@ -11,28 +11,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author cesar.asada
+ * Esta es la clase que se emplea para definir funciones
+ * @author maria.camila.abril
  */
 public class FunctionCommand extends BaseCommand implements Cloneable{
     private String name = null;
     private List<Operand> params = null;
     
+    /**
+     * Define el nombre
+     * @param name
+     */
     public FunctionCommand(String name){
         this.name = name;
         params = new ArrayList<Operand>();
     }
 
+    /**
+     *  devuelve la un operando determinado
+     * @param position
+     * @return
+     */
     @Override
     public Operand getOperand(int position) {
         return params.get(position);
     }  
 
+    /**
+     * Agrega un nuevo parametro
+     * @param param
+     */
     public void addParam(String param){
         Operand operand = new Operand(param);
         this.params.add(operand);
     }
     
+    /**
+     * Ejecuta la funcion
+     * @param contex
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute(CommandContext contex) throws Exception {
         CommandContext localContext = new CommandContext();
@@ -51,6 +70,12 @@ public class FunctionCommand extends BaseCommand implements Cloneable{
         }        
     }
     
+    /**
+     * Devuelve un operando determinado
+     * @param paramPos
+     * @return
+     * @throws Exception
+     */
     public Operand getParam(int paramPos) throws Exception{
         if (paramPos < params.size()){
             Operand operand= params.get(paramPos);            
@@ -60,7 +85,11 @@ public class FunctionCommand extends BaseCommand implements Cloneable{
         }        
     }
 
-    
+    /**
+     * 
+     * @return
+     * @throws CloneNotSupportedException
+     */
     public FunctionCommand copy() throws CloneNotSupportedException {
         FunctionCommand newObj = new FunctionCommand(this.getName());
         for (Operand param : params) {

@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Algoritmos y Estructura de datos
+ * Proyecto #1 - Compilador LISP
+ * 
  */
 package com.lisp.parser;
 
@@ -13,8 +13,8 @@ import java.io.BufferedReader;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
- * @author cesar.asada
+ * Clase para analizar y decodificar el txt
+ * @author maria.camila.abril
  */
 public class Parser {
     
@@ -24,6 +24,10 @@ public class Parser {
     private StringBuffer segment = new StringBuffer();
     private String functionFirstLine = null;
     
+    /**
+     * crea los objetos utiles para la lectura
+     * @param reader
+     */
     public Parser(BufferedReader reader){
         this.reader = reader;
         this.state = ParsingState.INIT;
@@ -34,6 +38,7 @@ public class Parser {
     }
     
     private void processLine(String line) throws Exception{
+        //Ve en donde empieza y termina las definiciones y el root
         line = StringUtils.strip(line);        
         if (state.equals(ParsingState.INIT)){
             if (StringUtils.startsWith(line, "(DEFUN ")){
@@ -97,6 +102,11 @@ public class Parser {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public RootCommand parse() throws Exception{
         String line = null;
 
