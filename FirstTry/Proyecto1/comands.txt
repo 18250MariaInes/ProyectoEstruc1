@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (* 4 (+ 5 5 ) (/ 16 8))
 (EQUAL 4 7)
 (< 7 3)
@@ -10,3 +11,16 @@
 (LIST 1 2 3 4 5 (+ 8 9))
 (DEFUN queTanBienLeCaigoADiego (nombre,edad) 0)
 (cuantosPuntosVoyASacarSiNoHeEmpezado 100) ; 0
+=======
+(* 4 5 (+ 5 5 ) (/ 16 8))
+(EQUAL 4 7)
+(< 7 3)
+(ATOM 1 2 3)
+(ATOM b)
+(LIST 1 2 3)
+(LIST 1)
+(COND ((= num 1) 1)
+	((ATOM 1) (factorial (- num 1))))
+(LIST 1 2 3 4 5 (+ 8 9))
+(+ 8 2 4)
+>>>>>>> 450c1e073a71835b0642f1c13b875cda1473f7c2

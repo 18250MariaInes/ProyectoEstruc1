@@ -40,8 +40,6 @@ public class Analizador {
             hashFuncion.put("nombre", name);
             hashFuncion.put("param", parametros);
             hashFuncion.put("cuerpo", cuerpo);
-            System.out.print("Es definicion de funcion!!\n NOMBRE: " + name +"\nPARAMETRO: " +Arrays.toString(parametros)+"\nCUERPO: " + cuerpo);
-            System.out.print(hashFuncion);
             return hashFuncion;
         }else if (Arrays.asList(posibles).contains(primero)){
             //Si es algun comando LISP determinado 
@@ -55,11 +53,9 @@ public class Analizador {
             operaciones.add(last[0]);
             //Contador de cuantos items hay en el array
             int numDatos = operaciones.size();
-            System.out.print("Num de operaciones: " + numDatos);
             for (int c=0; c < numDatos;c++){
                 //Se itera cada comando ingresado, es decir cada item del array
                 String comando = operaciones.get(c);
-                System.out.print("\n" +operaciones.get(c));
                 // Con el string se hace split con el delimitador como parametro
                 String[] items = comando.split(" ");
                 // Se crea una Lista con los item separados anteriormente
@@ -72,10 +68,8 @@ public class Analizador {
                 hashInstrucciones.put(comandoList.get(0), values);
                 //Este array se pasa como parametro a la funcion Evaluar par determinar que comando es
             }
-            System.out.print("\nEl hashMap   "+ hashInstrucciones);
         } else{
             //Si es alguna funcion definida por el user
-            System.out.print("\nEs una funcion definida por el user en el txt");
             
         }
         return hashInstrucciones;
